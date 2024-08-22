@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(fido-vertical-mode t)
- '(package-selected-packages '(magit auctex))
+ '(package-selected-packages '(markdown-mode magit auctex))
  '(pixel-scroll-mode t)
  '(pixel-scroll-precision-mode t))
 (custom-set-faces
