@@ -4,9 +4,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(fido-vertical-mode t)
+ '(menu-bar-mode nil)
  '(package-selected-packages '(markdown-mode magit auctex))
  '(pixel-scroll-mode t)
- '(pixel-scroll-precision-mode t))
+ '(pixel-scroll-precision-mode t)
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -17,9 +19,12 @@
 
 ;;Custom settings done manually
 
-(set-foreground-color "white")
-(set-background-color "black")
+;; (set-foreground-color "white")
+;; (set-background-color "black")
 
+(setq default-frame-alist
+  '((foreground-color . "white")
+    (background-color . "black")))
 
 ;; (with-eval-after-load 'eglot
 ;;   (add-to-list 'eglot-server-programs
@@ -32,3 +37,4 @@
 
 ;; set the default spelling program to aspell
 (setq-default ispell-program-name "aspell")
+(setq backup-directory-alist `(("." . "~/.emacs_backups_aftab")))
