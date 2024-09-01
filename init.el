@@ -5,10 +5,16 @@
  ;; If there is more than one, they won't work right.
  '(fido-vertical-mode t)
  '(menu-bar-mode nil)
- '(package-selected-packages '(markdown-mode magit auctex))
+ '(package-archive-priorities '(("gnu" . 100) ("nongnu" . 50) ("melpa" . 0)))
+ '(package-archives
+   '(("gnu" . "https://elpa.gnu.org/packages/")
+     ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+     ("melpa" . "https://melpa.org/packages/")))
+ '(package-selected-packages '(julia-snail eat markdown-mode magit auctex))
  '(pixel-scroll-mode t)
  '(pixel-scroll-precision-mode t)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(use-package-always-pin 'nongnu))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -18,6 +24,7 @@
  '(font-latex-script-char-face ((t (:foreground "light green")))))
 
 ;;Custom settings done manually
+
 
 ;; (set-foreground-color "white")
 ;; (set-background-color "black")
@@ -38,3 +45,9 @@
 ;; set the default spelling program to aspell
 (setq-default ispell-program-name "aspell")
 (setq backup-directory-alist `(("." . "~/.emacs_backups_aftab")))
+
+(use-package julia-snail
+  :custom
+  (julia-snail-terminal-type :eat)
+  :hook
+  (julia-mode . julia-snail-mode))
