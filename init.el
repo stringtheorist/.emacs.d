@@ -10,7 +10,7 @@
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
- '(package-selected-packages '(julia-snail eat markdown-mode magit auctex))
+ '(package-selected-packages '(auctex eat markdown-mode magit))
  '(pixel-scroll-mode t)
  '(pixel-scroll-precision-mode t)
  '(tool-bar-mode nil)
@@ -46,8 +46,3 @@
 (setq-default ispell-program-name "aspell")
 (setq backup-directory-alist `(("." . "~/.emacs_backups_aftab")))
 
-(use-package julia-snail
-  :custom
-  (julia-snail-terminal-type :eat)
-  :hook
-  (julia-mode . julia-snail-mode))
