@@ -13,6 +13,7 @@
  '(package-selected-packages '(julia-mode auctex eat markdown-mode magit))
  '(pixel-scroll-mode t)
  '(pixel-scroll-precision-mode t)
+ '(tab-always-indent 'complete)
  '(tool-bar-mode nil)
  '(use-package-always-pin 'nongnu))
 (custom-set-faces
