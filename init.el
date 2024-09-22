@@ -21,7 +21,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "IntoneMono Nerd Font Mono" :foundry "nil" :slant normal :weight regular :height 140 :width normal))))
+ '(default ((t (:family "JetBrainsMonoNL Nerd Font Mono" :foundry "nil" :slant normal :weight regular :height 140 :width normal))))
  '(font-latex-script-char-face ((t (:foreground "light green")))))
 
 ;;Custom settings done manually
