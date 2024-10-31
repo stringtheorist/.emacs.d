@@ -10,8 +10,7 @@
  '(package-archive-priorities '(("gnu" . 100) ("nongnu" . 50) ("melpa" . 0)))
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
-     ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-     ("melpa" . "https://melpa.org/packages/")))
+     ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
  '(package-selected-packages '(dracula-theme julia-mode auctex eat markdown-mode magit))
  '(pixel-scroll-mode t)
  '(pixel-scroll-precision-mode t)
