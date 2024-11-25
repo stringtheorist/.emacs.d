@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(TeX-view-program-selection '((output-pdf "PDF Tools")))
  '(custom-safe-themes
    '("603a831e0f2e466480cdc633ba37a0b1ae3c3e9a4e90183833bc4def3421a961" default))
  '(fido-vertical-mode t)
@@ -11,7 +12,8 @@
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
- '(package-selected-packages '(dracula-theme julia-mode auctex eat markdown-mode magit))
+ '(package-selected-packages
+   '(exec-path-from-shell pdf-tools dracula-theme julia-mode auctex eat markdown-mode magit))
  '(pixel-scroll-mode t)
  '(pixel-scroll-precision-mode t)
  '(tab-always-indent 'complete)
@@ -50,3 +52,28 @@
 
 ;; remove the bell
 (setq ring-bell-function 'ignore)
+
+;;Theme
+(add-hook 'after-init-hook (lambda () (load-theme 'modus-vivendi)))
+
+
+
+;;AucTeX pdf-tools cooperation
+;; to use pdfview with auctex
+(pdf-tools-install)
+(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+      TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
+      ;;TeX-source-correlate-start-server t) ;; not sure if last line is neccessary
+
+(add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+		      
+;;       TeX-source-correlate-start-server t) ;; not sure if last line is neccessary
+
+;;  ;; to have the buffer refresh after compilation
+;; (add-hook 'TeX-after-compilation-finished-functions
+;;            #'TeX-revert-document-buffer)
+;; to use pdfview with auctex
+
+ ;; ;; to have the buffer refresh after compilation
+ ;; (add-hook 'TeX-after-compilation-finished-functions
+ ;;        #'TeX-revert-document-buffer)
