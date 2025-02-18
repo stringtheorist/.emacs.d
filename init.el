@@ -3,7 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(TeX-view-program-selection '((output-pdf "PDF Tools")) t)
+ '(TeX-view-program-selection '((output-pdf "PDF Tools")))
  '(custom-safe-themes
    '("2e7dc2838b7941ab9cabaa3b6793286e5134f583c04bde2fba2f4e20f2617cf7" "603a831e0f2e466480cdc633ba37a0b1ae3c3e9a4e90183833bc4def3421a961" default))
  '(fido-mode nil)
@@ -14,7 +14,7 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(cdlatex corfu orderless marginalia vertico trashed dired-subtree nerd-icons-dired nerd-icons-corfu nerd-icons-completion nerd-icons exec-path-from-shell pdf-tools auctex eat markdown-mode magit))
+   '(fontaine cdlatex corfu orderless marginalia vertico trashed dired-subtree nerd-icons-dired nerd-icons-corfu nerd-icons-completion nerd-icons exec-path-from-shell pdf-tools auctex eat markdown-mode magit))
  '(pixel-scroll-mode t)
  '(pixel-scroll-precision-mode t)
  '(tab-always-indent 'complete)
@@ -194,11 +194,11 @@ The DWIM behaviour of this command is as follows:
 ;; (scroll-bar-mode 1)
 ;; (tool-bar-mode -1)
 
-(let ((mono-spaced-font "Monospace")
-      (proportionately-spaced-font "Sans"))
-  (set-face-attribute 'default nil :family mono-spaced-font :height 100)
-  (set-face-attribute 'fixed-pitch nil :family mono-spaced-font :height 1.0)
-  (set-face-attribute 'variable-pitch nil :family proportionately-spaced-font :height 1.0))
+;; (let ((mono-spaced-font "Monospace")
+;;       (proportionately-spaced-font "Sans"))
+;;   (set-face-attribute 'default nil :family mono-spaced-font :height 100)
+;;   (set-face-attribute 'fixed-pitch nil :family mono-spaced-font :height 1.0)
+;;   (set-face-attribute 'variable-pitch nil :family proportionately-spaced-font :height 1.0))
 
 ;; (use-package modus-themes
 ;;   :ensure t
@@ -268,7 +268,7 @@ The DWIM behaviour of this command is as follows:
 (use-package orderless
   :ensure t
   :config
-  (setq completion-styles '(orderless basic))
+  (setq completion-styles '(orderless flex))
   (setq completion-category-defaults nil)
   (setq completion-category-overrides nil))
 
@@ -293,6 +293,7 @@ The DWIM behaviour of this command is as follows:
     (corfu-history-mode 1)
     (add-to-list 'savehist-additional-variables 'corfu-history)))
 
+(define-key global-map (kbd "C-c e") 'hippie-expand)
 ;;; The file manager (Dired)
 
 (use-package dired
@@ -360,4 +361,7 @@ The DWIM behaviour of this command is as follows:
       TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
 
 (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
-		      
+(setq TeX-parse-self t) ; Enable parse on load.
+(setq TeX-auto-save t) ; Enable parse on save.
+
+
